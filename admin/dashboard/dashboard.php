@@ -8,11 +8,7 @@ if (!$_SESSION) {
     $image = $_SESSION["image"];
 }
 
-$server = 'localhost'; //server name; xammpp default is localhost
-$uname = 'root'; //mysql username; root is the default username
-$pword = ''; //mysql password; blank is the default of xammpp
-$dbname = 'face_crush_db'; //name of the DB to be used
-$conn = new mysqli($server, $uname, $pword, $dbname); //this variable is the one that will connect to the database;
+include_once "database.php";
 
 $sql = "SELECT * FROM people ORDER BY id ASC";
 $result = $conn->query($sql);
@@ -308,7 +304,7 @@ $peopleCount = $get_number_of_people->fetch_assoc();
                                     <td><img style="width: 40px; border-radius: 10px; height: 50px" src="<?php echo $people["image"]; ?>" alt=""></td>
                                     <td><?php echo $people["name"]; ?></td>
                                     <td><?php echo $people["course_yr"]; ?></td>
-                                    <td><button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                                    <td><a href="remove.php?id=<?php echo $people['id']; ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
