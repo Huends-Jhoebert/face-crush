@@ -267,6 +267,10 @@ $peopleCount = $get_number_of_people->fetch_assoc();
                                             <label for="exampleInputPassword1" class="form-label">Course/Yr</label>
                                             <input type="text" name="course_yr" class="form-control" id="exampleInputPassword1">
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputPassword1" class="form-label">Description</label>
+                                            <textarea name="description" id="" cols="30" rows="10"></textarea>
+                                        </div>
                                         <div class="input-group mb-3" style="margin-top: 10px;">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="image">

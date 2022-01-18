@@ -9,11 +9,12 @@ include_once "functions/randomString.php";
 
 $name = '';
 $course_yr = '';
+$description = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $course_yr = $_POST['course_yr'];
-
+    $description = $_POST['description'];
 
     // if (!$username) {
     //     $errors[] = 'Username is required';
@@ -38,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         move_uploaded_file($image['tmp_name'], $imagePath);
     }
 
-    $sql = "INSERT INTO people (name, course_yr, image)
-            VALUES ('$name', '$course_yr', '$imagePath')";
+    $sql = "INSERT INTO people (name, course_yr, image, description)
+            VALUES ('$name', '$course_yr', '$imagePath', '$description')";
 
     $conn->query($sql);
 
