@@ -22,8 +22,7 @@ $face2Description = $results[1]['description'];
 
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
-            <h5 class="text-white h4">Collapsed content</h5>
-            <span class="text-muted">Toggleable via the navbar brand.</span>
+            <a href="#" class="btn btn-primary text-white h4">TOP FACES</a>
         </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">
@@ -43,7 +42,7 @@ $face2Description = $results[1]['description'];
         <div class="row bg-light justify-content-center p-3 shadow-lg __img-container">
             <div class="d-lg-flex justify-content-evenly __cards_container">
                 <div class="col-sm-12 col-md-4 col-lg-4 shadow-lg">
-                    <div class="card" style="width: 100%;">
+                    <div class="card border-0" style="width: 100%;">
                         <img src=" <?php echo $face1Image; ?>" class="card-img-top" height="300px" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $face1Name; ?></h5>
@@ -55,7 +54,7 @@ $face2Description = $results[1]['description'];
                 <span class="__fire"><img src="https://www.042nobs.com/wp-content/uploads/2019/07/source.gif" alt=""></span>
                 <h1 class="__vs text-danger">VS</h1>
                 <div class="col-sm-12 col-md-4 col-lg-4 shadow-lg">
-                    <div class="card" style="width: 100%;">
+                    <div class="card border-0" style="width: 100%;">
                         <img src=" <?php echo $face2Image; ?>" class="card-img-top" height="300px" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $face2Name; ?></h5>

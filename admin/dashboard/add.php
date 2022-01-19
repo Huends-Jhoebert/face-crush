@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $course_yr = $_POST['course_yr'];
     $description = $_POST['description'];
+    $rating = 1500;
 
     // if (!$username) {
     //     $errors[] = 'Username is required';
@@ -39,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         move_uploaded_file($image['tmp_name'], $imagePath);
     }
 
-    $sql = "INSERT INTO people (name, course_yr, image, description)
-            VALUES ('$name', '$course_yr', '$imagePath', '$description')";
+    $sql = "INSERT INTO people (name, course_yr, image, description, rating)
+            VALUES ('$name', '$course_yr', '$imagePath', '$description', '$rating')";
 
     $conn->query($sql);
 
