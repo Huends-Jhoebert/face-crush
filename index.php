@@ -5,6 +5,10 @@ $sql = "SELECT * FROM people ORDER BY RAND() LIMIT 2;";
 $result = $conn->query($sql);
 $results = $result->fetch_all(MYSQLI_ASSOC);
 
+$sql1 = "SELECT * FROM people ORDER BY rating DESC";
+$result1 = $conn->query($sql1);
+$results1 = $result1->fetch_all(MYSQLI_ASSOC);
+
 $face1Image = "admin/dashboard/" . $results[0]['image'];
 $face2Image = "admin/dashboard/" . $results[1]['image'];
 $face1Id = $results[0]['id'];
@@ -26,7 +30,7 @@ $face2Description = $results[1]['description'];
 
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
-            <a href="#" class="btn btn-primary text-white h4">TOP FACES</a>
+            <button class="btn btn-primary text-white h4" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">TOP FACES</button>
         </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">
@@ -82,6 +86,31 @@ $face2Description = $results[1]['description'];
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-success" id="exampleModalLabel">TOP FACES (MALE VERSION)</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?php foreach ($results1 as $data) : ?>
+                        <h5 class="border border-1 border-light p-2 bg-light shadow-sm mb-3">
+                            <?php echo $data["name"]; ?>
+                        </h5>
+                    <?php endforeach; ?>
+                    <!-- <h5 class="border border-1 border-light p-2 bg-light shadow-sm mb-3">Asdasd</h5>
+                    <h5 class="border border-1 border-light p-2 bg-light shadow-sm">Asdasd</h5> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
