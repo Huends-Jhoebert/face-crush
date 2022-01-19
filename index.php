@@ -53,7 +53,8 @@ $face2Description = $results[1]['description'];
                             <p class="card-text"><?php echo $face1Description; ?></p>
                             <!-- <a href="rate.php?id=<?php echo $face1Id; ?>" class="btn btn-primary">Bet 😍</a> -->
                             <form style="display: inline-block;" action="rate.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $face1Id; ?>">
+                                <input type="hidden" name="id1" value="<?php echo $face1Id; ?>">
+                                <input type="hidden" name="id2" value="<?php echo $face2Id; ?>">
                                 <input type="hidden" name="rating1" value="<?php echo $face1Rating ?>">
                                 <input type="hidden" name="rating2" value="<?php echo $face2Rating ?>">
                                 <input type="hidden" name="win" value="<?php echo true; ?>">
@@ -72,7 +73,8 @@ $face2Description = $results[1]['description'];
                             <p class="card-text"><?php echo $face2Description; ?></p>
                             <!-- <a href="rate.php?id=<?php echo $face2Id; ?>" class="btn btn-primary text-center">Bet 😍</a> -->
                             <form style="display: inline-block;" action="rate.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $face2Id; ?>">
+                                <input type="hidden" name="id1" value="<?php echo $face1Id; ?>">
+                                <input type="hidden" name="id2" value="<?php echo $face2Id; ?>">
                                 <input type="hidden" name="rating1" value="<?php echo $face1Rating ?>">
                                 <input type="hidden" name="rating2" value="<?php echo $face2Rating ?>">
                                 <input type="hidden" name="win" value="<?php echo false; ?>">

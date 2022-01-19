@@ -1,5 +1,7 @@
 <?php
 
+
+
 // Ra and Rb are current ELO ratings
 // $Ra = 1200;
 // $Rb = 1000;
@@ -8,6 +10,7 @@
 // $d = false;
 
 $newRating = [];
+
 
 //  Function to calculate the Probability
 function probability($rating1, $rating2)
@@ -18,8 +21,11 @@ function probability($rating1, $rating2)
 // Function to calculate Elo rating
 // K is a constant.
 // d determines whether Player A wins or Player B.
-function EloRating($Ra, $Rb, $K, $d)
+function EloRating($Ra, $Rb, $K, $d, $id1, $id2)
 {
+    include_once "./config/database.php";
+    $sql1 = "";
+    $sql2 = "";
 
     // To calculate the Winning
     // Probability of Player B
@@ -37,6 +43,10 @@ function EloRating($Ra, $Rb, $K, $d)
 
         $newRating[] = $Ra;
         $newRating[] = $Rb;
+        $sql1 = "UPDATE people SET rating='$newRating[0]' WHERE id='$id1'";
+        $sql2 = "UPDATE people SET rating='$newRating[1]' WHERE id='$id2'";
+        $result1 = $conn->query($sql1);
+        $result2 = $conn->query($sql2);
     }
 
     // Case -2 When Player B wins
@@ -47,15 +57,11 @@ function EloRating($Ra, $Rb, $K, $d)
 
         $newRating[] = $Ra;
         $newRating[] = $Rb;
+        $sql1 = "UPDATE people SET rating='$newRating[0]' WHERE id='$id1'";
+        $sql2 = "UPDATE people SET rating='$newRating[1]' WHERE id='$id2'";
+        $result1 = $conn->query($sql1);
+        $result2 = $conn->query($sql2);
     }
 
-
-    echo $newRating[0];
-    echo "<br/>";
-    echo $newRating[1];
-
-
-    // echo "Updated Ratings:-\n";
-
-    // echo  "Ra = " . $Ra . " Rb = " . $Rb;
+    header("location:./index.php");
 }
