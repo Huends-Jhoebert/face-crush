@@ -13,34 +13,9 @@ $face1Description = $results[0]['description'];
 $face2Description = $results[1]['description'];
 
 ?>
+
+<link rel="stylesheet" href="css/style.css">
 <title>FACECRUSH</title>
-<style>
-    .__head {
-        background-color: #1B2A47;
-        margin-top: 5%;
-    }
-
-
-
-    .__img_container span {
-        display: inline-block;
-        margin-top: 10%;
-        font-size: 100rem;
-    }
-
-    .__vs {
-        font-size: 10rem;
-        margin-top: 14%;
-    }
-
-    .__fire img {
-        display: inline-block;
-        width: 170px;
-        width: 170px;
-        position: absolute;
-        left: 44%;
-    }
-</style>
 </head>
 
 <body>
@@ -66,26 +41,26 @@ $face2Description = $results[1]['description'];
 
     <div class="container mt-3">
         <div class="row bg-light justify-content-center p-3 shadow-lg __img-container">
-            <div class="d-flex justify-content-evenly">
-                <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="d-lg-flex justify-content-evenly __cards_container">
+                <div class="col-sm-12 col-md-4 col-lg-4 shadow-lg">
                     <div class="card" style="width: 100%;">
                         <img src=" <?php echo $face1Image; ?>" class="card-img-top" height="300px" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $face1Name; ?></h5>
                             <p class="card-text"><?php echo $face1Description; ?></p>
-                            <a href="#" class="btn btn-primary" style="margin: 0 auto;">Bet 😍</a>
+                            <a href="index.php" class="btn btn-primary" style="margin: 0 auto;">Bet 😍</a>
                         </div>
                     </div>
                 </div>
                 <span class="__fire"><img src="https://www.042nobs.com/wp-content/uploads/2019/07/source.gif" alt=""></span>
                 <h1 class="__vs text-danger">VS</h1>
-                <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="col-sm-12 col-md-4 col-lg-4 shadow-lg">
                     <div class="card" style="width: 100%;">
                         <img src=" <?php echo $face2Image; ?>" class="card-img-top" height="300px" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $face2Name; ?></h5>
                             <p class="card-text"><?php echo $face2Description; ?></p>
-                            <a href="#" class="btn btn-primary text-center">Bet 😍</a>
+                            <a href="index.php" class="btn btn-primary text-center">Bet 😍</a>
                         </div>
                     </div>
                 </div>
