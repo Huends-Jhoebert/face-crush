@@ -7,8 +7,12 @@ $results = $result->fetch_all(MYSQLI_ASSOC);
 
 $face1Image = "admin/dashboard/" . $results[0]['image'];
 $face2Image = "admin/dashboard/" . $results[1]['image'];
+$face1Id = $results[0]['id'];
+$face2Id = $results[1]['id'];
 $face1Name = $results[0]['name'];
 $face2Name = $results[1]['name'];
+$face1Rating = $results[0]['rating'];
+$face2Rating = $results[1]['rating'];
 $face1Description = $results[0]['description'];
 $face2Description = $results[1]['description'];
 
@@ -47,7 +51,14 @@ $face2Description = $results[1]['description'];
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $face1Name; ?></h5>
                             <p class="card-text"><?php echo $face1Description; ?></p>
-                            <a href="index.php" class="btn btn-primary" style="margin: 0 auto;">Bet 😍</a>
+                            <!-- <a href="rate.php?id=<?php echo $face1Id; ?>" class="btn btn-primary">Bet 😍</a> -->
+                            <form style="display: inline-block;" action="rate.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $face1Id; ?>">
+                                <input type="hidden" name="rating1" value="<?php echo $face1Rating ?>">
+                                <input type="hidden" name="rating2" value="<?php echo $face2Rating ?>">
+                                <input type="hidden" name="win" value="<?php echo true; ?>">
+                                <button type="submit" class="btn btn-md btn-danger">Bet 😍</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -59,7 +70,14 @@ $face2Description = $results[1]['description'];
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $face2Name; ?></h5>
                             <p class="card-text"><?php echo $face2Description; ?></p>
-                            <a href="index.php" class="btn btn-primary text-center">Bet 😍</a>
+                            <!-- <a href="rate.php?id=<?php echo $face2Id; ?>" class="btn btn-primary text-center">Bet 😍</a> -->
+                            <form style="display: inline-block;" action="rate.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $face2Id; ?>">
+                                <input type="hidden" name="rating1" value="<?php echo $face1Rating ?>">
+                                <input type="hidden" name="rating2" value="<?php echo $face2Rating ?>">
+                                <input type="hidden" name="win" value="<?php echo false; ?>">
+                                <button type="submit" class="btn btn-md btn-danger">Bet 😍</button>
+                            </form>
                         </div>
                     </div>
                 </div>

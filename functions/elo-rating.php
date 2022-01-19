@@ -1,12 +1,13 @@
 <?php
 
 // Ra and Rb are current ELO ratings
-$Ra = 1200;
-$Rb = 1000;
+// $Ra = 1200;
+// $Rb = 1000;
 
-$K = 30;
-$d = false;
+// $K = 30;
+// $d = false;
 
+$newRating = [];
 
 //  Function to calculate the Probability
 function probability($rating1, $rating2)
@@ -33,6 +34,9 @@ function EloRating($Ra, $Rb, $K, $d)
     if ($d == 1) {
         $Ra = $Ra + $K * (1 - $Pa);
         $Rb = $Rb + $K * (0 - $Pb);
+
+        $newRating[] = $Ra;
+        $newRating[] = $Rb;
     }
 
     // Case -2 When Player B wins
@@ -40,10 +44,18 @@ function EloRating($Ra, $Rb, $K, $d)
     else {
         $Ra = $Ra + $K * (0 - $Pa);
         $Rb = $Rb + $K * (1 - $Pb);
+
+        $newRating[] = $Ra;
+        $newRating[] = $Rb;
     }
 
-    // echo "Updated Ratings:-\n";
-    echo  "Ra = " . $Ra . " Rb = " . $Rb;
-}
 
-EloRating($Ra, $Rb, $K, $d);
+    echo $newRating[0];
+    echo "<br/>";
+    echo $newRating[1];
+
+
+    // echo "Updated Ratings:-\n";
+
+    // echo  "Ra = " . $Ra . " Rb = " . $Rb;
+}
