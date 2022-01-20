@@ -25,7 +25,7 @@ $face2Description = $results[1]['course_yr'];
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
-<title>FACECRUSH - Boy Version</title>
+<title>FACECRUSH - Girl Version</title>
 </head>
 
 <body>

@@ -14,9 +14,13 @@ $sql = "SELECT * FROM people ORDER BY id ASC";
 $result = $conn->query($sql);
 $results = $result->fetch_all(MYSQLI_ASSOC);
 
-// echo "<pre>";
-// var_dump($results);
-// echo "</pre>";
+$sql1 = "SELECT * FROM people1 ORDER BY id ASC";
+$result1 = $conn->query($sql1);
+$results1 = $result1->fetch_all(MYSQLI_ASSOC);
+
+//merging two arrays that stored datas that are combine from the two table people and people 1
+$avg = array_merge($results, $results1);
+
 
 $get_people = "SELECT COUNT(*) as peopleCount FROM people";
 $get_number_of_people = $conn->query($get_people);
@@ -277,6 +281,13 @@ $peopleCount = $get_number_of_people->fetch_assoc();
                                                 <label class=" custom-file-label" for="inputGroupFile01">Choose file</label>
                                             </div>
                                         </div>
+                                        <div class="input-group mb-3" style="margin-top: 10px; margin-bottom: 10px;">
+                                            <select name="type" class="form-select" aria-label="Default select example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="boy">Boy</option>
+                                                <option value="girl">Girl</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -302,7 +313,7 @@ $peopleCount = $get_number_of_people->fetch_assoc();
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($results as $people) : ?>
+                            <?php foreach ($avg  as $people) : ?>
                                 <tr>
                                     <td><?php echo $people["id"]; ?></td>
                                     <td><img style="width: 40px; border-radius: 10px; height: 50px" src="<?php echo $people["image"]; ?>" alt=""></td>

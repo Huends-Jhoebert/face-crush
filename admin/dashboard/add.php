@@ -10,6 +10,7 @@ include_once "functions/randomString.php";
 $name = '';
 $course_yr = '';
 $description = '';
+$type = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
@@ -33,25 +34,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $image = $_FILES['image'] ?? null;
     $imagePath = '';
 
-    if ($image && $image['tmp_name']) {
-        $imagePath = 'images/' . randomString(8) . '/' . $image['name'];
-        mkdir(dirname($imagePath));
+    // if ($image && $image['tmp_name']) {
+    //     $imagePath = 'images/' . randomString(8) . '/' . $image['name'];
+    //     mkdir(dirname($imagePath));
 
-        move_uploaded_file($image['tmp_name'], $imagePath);
-    }
+    //     move_uploaded_file($image['tmp_name'], $imagePath);
+    // }
 
-    $sql = "INSERT INTO people (name, course_yr, image, description, rating)
+    // $sql = "INSERT INTO people (name, course_yr, image, description, rating)
+    //         VALUES ('$name', '$course_yr', '$imagePath', '$description', '$rating')";
+
+    // $conn->query($sql);
+
+    // $conn->close();
+    // header('Location: dashboard.php');
+
+    if ($type == 'boy') {
+
+        if ($image && $image['tmp_name']) {
+            $imagePath = 'images/' . randomString(8) . '/' . $image['name'];
+            mkdir(dirname($imagePath));
+
+            move_uploaded_file($image['tmp_name'], $imagePath);
+        }
+
+        $sql = "INSERT INTO people (name, course_yr, image, description, rating)
             VALUES ('$name', '$course_yr', '$imagePath', '$description', '$rating')";
 
-    $conn->query($sql);
+        $conn->query($sql);
 
-    $conn->close();
-    // $statement = $pdo->prepare("INSERT INTO users (user_username, user_password, user_image)
-    //             VALUES(:username, :password, :image)");
+        $conn->close();
+        header('Location: dashboard.php');
+    } else {
+        if ($image && $image['tmp_name']) {
+            $imagePath = 'images/' . randomString(8) . '/' . $image['name'];
+            mkdir(dirname($imagePath));
 
-    // $statement->bindValue(':username', $username);
-    // $statement->bindValue(':password', $password);
-    // $statement->bindValue(':image', $imagePath);
-    // $statement->execute();
-    header('Location: dashboard.php');
+            move_uploaded_file($image['tmp_name'], $imagePath);
+        }
+
+        $sql = "INSERT INTO people1 (name, course_yr, image, description, rating)
+            VALUES ('$name', '$course_yr', '$imagePath', '$description', '$rating')";
+
+        $conn->query($sql);
+
+        $conn->close();
+        header('Location: dashboard.php');
+    }
 }
