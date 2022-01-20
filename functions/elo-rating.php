@@ -63,5 +63,5 @@ function EloRating($Ra, $Rb, $K, $d, $id1, $id2)
         $result2 = $conn->query($sql2);
     }
 
-    header("location:./index.php");
+    header("location:./boy.php");
 }

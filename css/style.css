@@ -32,6 +32,10 @@
     width: 40px;
     width: 40px;
   }
+
+  .home-btn {
+    margin-left: 0;
+  }
 }
 
 @media (min-width: 321px) and (max-width: 768px) {
