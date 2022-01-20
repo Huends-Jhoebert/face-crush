@@ -213,14 +213,14 @@ $peopleCount = $get_number_of_people->fetch_assoc();
                                 <h4 class="text-left text-uppercase"><b>Number Of Persons</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="col-xs-3 mar-bot-15 text-left">
-                                        <label class="label bg-green"><?php echo round(($peopleCount["peopleCount"] / 150) * 100, 2); ?>% <i class="fa fa-level-up" aria-hidden="true"></i></label>
+                                        <label class="label bg-green"><?php echo round((count($avg) / 150) * 100, 2); ?>% <i class="fa fa-level-up" aria-hidden="true"></i></label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin"><?php echo $peopleCount["peopleCount"]; ?></h2>
+                                        <h2 class="text-right no-margin"><?php echo count($avg); ?></h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
-                                    <div style="width: <?php echo round(($peopleCount["peopleCount"] / 150) * 100, 2); ?>%;" class="progress-bar bg-green"></div>
+                                    <div style="width: <?php echo round((count($avg) / 150) * 100, 2); ?>%;" class="progress-bar bg-green"></div>
                                 </div>
                             </div>
                         </div>
@@ -319,7 +319,14 @@ $peopleCount = $get_number_of_people->fetch_assoc();
                                     <td><img style="width: 40px; border-radius: 10px; height: 50px" src="<?php echo $people["image"]; ?>" alt=""></td>
                                     <td><?php echo $people["name"]; ?></td>
                                     <td><?php echo $people["course_yr"]; ?></td>
-                                    <td><a href="remove.php?id=<?php echo $people['id']; ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a></td>
+                                    <td>
+                                        <form style="display: inline-block;" action="remove.php" method="post">
+                                            <input type="hidden" name="id" value="<?php echo $people['id'] ?>">
+                                            <input type="hidden" name="type" value="<?php echo $people["type"] ?>">
+                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
+                                        </form>
+                                        <!-- <a href="remove.php?id=<?php echo $people['id']; ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a> -->
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $course_yr = $_POST['course_yr'];
     $description = $_POST['description'];
+    $type = $_POST["type"];
     $rating = 1500;
 
     // if (!$username) {
@@ -34,20 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $image = $_FILES['image'] ?? null;
     $imagePath = '';
 
-    // if ($image && $image['tmp_name']) {
-    //     $imagePath = 'images/' . randomString(8) . '/' . $image['name'];
-    //     mkdir(dirname($imagePath));
-
-    //     move_uploaded_file($image['tmp_name'], $imagePath);
-    // }
-
-    // $sql = "INSERT INTO people (name, course_yr, image, description, rating)
-    //         VALUES ('$name', '$course_yr', '$imagePath', '$description', '$rating')";
-
-    // $conn->query($sql);
-
-    // $conn->close();
-    // header('Location: dashboard.php');
 
     if ($type == 'boy') {
 
@@ -73,8 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             move_uploaded_file($image['tmp_name'], $imagePath);
         }
 
-        $sql = "INSERT INTO people1 (name, course_yr, image, description, rating)
-            VALUES ('$name', '$course_yr', '$imagePath', '$description', '$rating')";
+        $sql = "INSERT INTO people1 (name, course_yr, image, description, rating, type)
+            VALUES ('$name', '$course_yr', '$imagePath', '$description', '$rating', '$type')";
 
         $conn->query($sql);
 

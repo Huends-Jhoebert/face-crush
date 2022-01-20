@@ -1,12 +1,19 @@
 <?php
 include_once "database.php";
 
-$id = $_GET["id"];
+$type = $_POST["type"];
+$id = $_POST["id"];
 
-echo $id;
 
-$sql = "DELETE FROM people WHERE id=$id";
-$result = $conn->query($sql);
+if ($type == "boy") {
+    $sql = "DELETE FROM people WHERE id=$id";
+    $result = $conn->query($sql);
+} else {
+    $sql = "DELETE FROM people1 WHERE id=$id";
+    $result = $conn->query($sql);
+}
+
+
 
 
 header("location:dashboard.php");

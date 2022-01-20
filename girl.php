@@ -1,11 +1,11 @@
 <?php include_once "website_body/header.php";
 
 include_once "config/database.php";
-$sql = "SELECT * FROM people ORDER BY RAND() LIMIT 2;";
+$sql = "SELECT * FROM people1 ORDER BY RAND() LIMIT 2;";
 $result = $conn->query($sql);
 $results = $result->fetch_all(MYSQLI_ASSOC);
 
-$sql1 = "SELECT * FROM people ORDER BY rating DESC";
+$sql1 = "SELECT * FROM people1 ORDER BY rating DESC LIMIT 10";
 $result1 = $conn->query($sql1);
 $results1 = $result1->fetch_all(MYSQLI_ASSOC);
 
@@ -59,7 +59,7 @@ $face2Description = $results[1]['course_yr'];
                             <h5 class="card-title"><?php echo $face1Name; ?></h5>
                             <p class="card-text"><?php echo $face1Description; ?></p>
                             <!-- <a href="rate.php?id=<?php echo $face1Id; ?>" class="btn btn-primary">Bet 😍</a> -->
-                            <form style="display: inline-block;" action="rate.php" method="post">
+                            <form style="display: inline-block;" action="rate1.php" method="post">
                                 <input type="hidden" name="id1" value="<?php echo $face1Id; ?>">
                                 <input type="hidden" name="id2" value="<?php echo $face2Id; ?>">
                                 <input type="hidden" name="rating1" value="<?php echo $face1Rating ?>">
@@ -79,7 +79,7 @@ $face2Description = $results[1]['course_yr'];
                             <h5 class="card-title"><?php echo $face2Name; ?></h5>
                             <p class="card-text"><?php echo $face2Description; ?></p>
                             <!-- <a href="rate.php?id=<?php echo $face2Id; ?>" class="btn btn-primary text-center">Bet 😍</a> -->
-                            <form style="display: inline-block;" action="rate.php" method="post">
+                            <form style="display: inline-block;" action="rate1.php" method="post">
                                 <input type="hidden" name="id1" value="<?php echo $face1Id; ?>">
                                 <input type="hidden" name="id2" value="<?php echo $face2Id; ?>">
                                 <input type="hidden" name="rating1" value="<?php echo $face1Rating ?>">
